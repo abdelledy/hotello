@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:hotello/screens/signup_screen.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -93,6 +95,7 @@ class _SignInState extends State<SignIn> {
                               prefixIcon: Icon(
                                 Icons.lock_outline,
                                 size: 22,
+                                color: Colors.blueGrey,
                               ),
                               labelStyle: TextStyle(
                                 color: Colors.blueGrey,
@@ -114,12 +117,6 @@ class _SignInState extends State<SignIn> {
                       ],
                     ),
                     InkWell(
-                      // onTap: () => Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (_) => SignIn(),
-                      //   ),
-                      // ),
                       child: Container(
                         height: 60.0,
                         width: 300.0,
@@ -188,7 +185,7 @@ class _SignInState extends State<SignIn> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 20.0),
+                    SizedBox(height: 22.0),
                     Padding(
                       padding:
                           EdgeInsets.only(left: 77.0, top: 0.0, bottom: 10.0),
@@ -200,11 +197,21 @@ class _SignInState extends State<SignIn> {
                               color: Colors.grey[400],
                             ),
                           ),
-                          Text(
-                            ' Sign Up',
-                            style: TextStyle(
-                              color: Colors.blueGrey,
-                              fontWeight: FontWeight.bold,
+                          RichText(
+                            text: TextSpan(
+                              text: ' Sign Up',
+                              style: TextStyle(
+                                // fontSize: 15.0,
+                                color: Colors.blueGrey,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (_) => SignUp(),
+                                      ),
+                                    ),
                             ),
                           ),
                         ],
@@ -212,26 +219,6 @@ class _SignInState extends State<SignIn> {
                     ),
                   ],
                 ),
-                // Padding(
-                //   padding: EdgeInsets.fromLTRB(60.0, 0.0, 20.0, 0.0),
-                //   child: Row(
-                //     children: [
-                //       Text(
-                //         "Dont't have an account? ",
-                //         style: TextStyle(
-                //           color: Colors.grey[400],
-                //         ),
-                //       ),
-                //       Text(
-                //         ' Sign Up',
-                //         style: TextStyle(
-                //           color: Colors.blueGrey,
-                //           fontWeight: FontWeight.bold,
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
               ],
             ),
           ),
