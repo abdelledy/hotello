@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:hotello/screens/signin_screen.dart';
+import 'package:hotello/screens/email_validation_screen.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -24,15 +25,6 @@ class _SignUpState extends State<SignUp> {
                   padding: const EdgeInsets.fromLTRB(60.0, 30.0, 60.0, 30.0),
                   child: Image.asset('assets/images/blue-logo.png'),
                 ),
-                // Text(
-                //   '- Welcome Back -',
-                //   style: TextStyle(
-                //     fontSize: 20.0,
-                //     color: Theme.of(context).primaryColor,
-                //     fontWeight: FontWeight.w600,
-                //     letterSpacing: 1.3,
-                //   ),
-                // ),
                 Column(
                   children: [
                     Container(
@@ -135,6 +127,14 @@ class _SignUpState extends State<SignUp> {
                     ),
                     SizedBox(height: 40.0),
                     InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => EmailValidation(),
+                          ),
+                        );
+                      },
                       child: Container(
                         height: 60.0,
                         width: 300.0,
