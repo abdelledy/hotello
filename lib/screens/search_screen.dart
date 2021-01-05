@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hotello/components/the_container.dart';
+import 'package:hotello/components/footer_icons.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -80,7 +81,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 Stack(
                   children: <Widget>[
                     Container(
-                      height: 594.0,
+                      height: 574.0,
                     ),
                     Positioned(
                       child: Container(
@@ -123,7 +124,8 @@ class _SearchScreenState extends State<SearchScreen> {
                         child: ListView(
                           children: [
                             Padding(
-                              padding: EdgeInsets.all(15.0),
+                              padding:
+                                  EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 15.0),
                               child: Column(
                                 children: [
                                   Column(
@@ -280,28 +282,6 @@ class _SearchScreenState extends State<SearchScreen> {
                                             children: [
                                               Text('Rooms', style: myStyle),
                                               SizedBox(height: 10.0),
-                                              // Container(
-                                              //   height: 50.0,
-                                              //   width: 152.0,
-                                              //   decoration: myDecoration,
-                                              //   child: Padding(
-                                              //     padding: EdgeInsets.symmetric(
-                                              //         horizontal: 15.0),
-                                              //     child: Row(
-                                              //       mainAxisAlignment:
-                                              //           MainAxisAlignment
-                                              //               .spaceBetween,
-                                              //       children: [
-                                              //         Text('02', style: aStyle),
-                                              //         Icon(
-                                              //             Icons.arrow_drop_down,
-                                              //             size: 30.0,
-                                              //             color:
-                                              //                 Colors.grey[500]),
-                                              //       ],
-                                              //     ),
-                                              //   ),
-                                              // )
                                               Container(
                                                 height: 50.0,
                                                 width: 152.0,
@@ -310,7 +290,6 @@ class _SearchScreenState extends State<SearchScreen> {
                                                 decoration: myDecoration,
                                                 child: Row(
                                                   children: [
-                                                    // Text('Hello'),
                                                     DropdownButton(
                                                       underline: SizedBox(),
                                                       hint: Padding(
@@ -368,8 +347,33 @@ class _SearchScreenState extends State<SearchScreen> {
                   ],
                 ),
                 Container(
-                  height: 46,
-                  color: Colors.cyan,
+                  height: 66,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20.0),
+                        topRight: Radius.circular(20.0)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black,
+                        blurRadius: 0.5, // soften the shadow
+                        // spreadRadius: 1.0, //extend the shadow
+                        offset: Offset(
+                          0.0, // Move to right 10  horizontally
+                          1.0, // Move to bottom 10 Vertically
+                        ),
+                      )
+                    ],
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                    child: Column(
+                      children: [
+                        SizedBox(height: 6.0),
+                        Footer(),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
