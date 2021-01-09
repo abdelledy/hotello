@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hotello/components/the_container.dart';
 import 'package:hotello/components/footer_icons.dart';
+import 'package:hotello/screens/results_screen.dart';
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -79,7 +80,7 @@ class _SearchScreenState extends State<SearchScreen> {
             child: Column(
               children: [
                 Stack(
-                  children: <Widget>[
+                  children: [
                     Container(
                       height: 574.0,
                     ),
@@ -141,7 +142,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                           style: aStyle,
                                           decoration: InputDecoration(
                                             border: InputBorder.none,
-                                            labelText: 'User name',
+                                            labelText: 'Search',
                                             prefixIcon: Icon(
                                               Icons.search,
                                               color: Colors.grey[500],
@@ -330,10 +331,18 @@ class _SearchScreenState extends State<SearchScreen> {
                                   Padding(
                                     padding: EdgeInsets.only(
                                         left: 20.0, right: 20.0),
-                                    child: TheContainer(
-                                      color: Theme.of(context).primaryColor,
-                                      textInside: 'Search',
-                                      height: 50.0,
+                                    child: InkWell(
+                                      onTap: () => Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (_) => ResulsScreen(),
+                                        ),
+                                      ),
+                                      child: TheContainer(
+                                        color: Theme.of(context).primaryColor,
+                                        textInside: 'Search',
+                                        height: 50.0,
+                                      ),
                                     ),
                                   ),
                                   SizedBox(height: 20.0),
@@ -346,35 +355,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                   ],
                 ),
-                Container(
-                  height: 66,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20.0),
-                        topRight: Radius.circular(20.0)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black,
-                        blurRadius: 0.5, // soften the shadow
-                        // spreadRadius: 1.0, //extend the shadow
-                        offset: Offset(
-                          0.0, // Move to right 10  horizontally
-                          1.0, // Move to bottom 10 Vertically
-                        ),
-                      )
-                    ],
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0),
-                    child: Column(
-                      children: [
-                        SizedBox(height: 6.0),
-                        Footer(),
-                      ],
-                    ),
-                  ),
-                ),
+                Footer(),
               ],
             ),
           ),

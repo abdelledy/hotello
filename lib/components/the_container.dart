@@ -5,11 +5,16 @@ class TheContainer extends StatelessWidget {
   final double height;
   final String textInside;
   final Color color;
+  final TextStyle myStyle;
 
-  TheContainer({this.width, this.color, this.height, this.textInside});
+  TheContainer(
+      {this.myStyle, this.width, this.color, this.height, this.textInside});
 
   @override
   Widget build(BuildContext context) {
+    final defaultStyle =
+        TextStyle(color: Colors.white, fontSize: 20.0, letterSpacing: 1.0);
+
     return Container(
       height: height,
       width: width,
@@ -20,11 +25,7 @@ class TheContainer extends StatelessWidget {
       child: Center(
         child: Text(
           textInside,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20.0,
-            letterSpacing: 1.0,
-          ),
+          style: myStyle == null ? defaultStyle : myStyle,
         ),
       ),
     );
