@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hotello/components/challenge-19-7/text_field.dart';
+import 'package:hotello/screens/challenge-19-7/successful_booking.dart';
 import 'package:hotello/components/the_container.dart';
 
 class AddCardDetails extends StatefulWidget {
@@ -93,12 +94,20 @@ class _AddCardDetailsState extends State<AddCardDetails> {
               });
             },
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 50.0),
-            child: TheContainer(
-              height: 50.0,
-              color: Theme.of(context).primaryColor,
-              textInside: 'Add Card',
+          InkWell(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => Done(),
+              ),
+            ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 50.0),
+              child: TheContainer(
+                height: 50.0,
+                color: Theme.of(context).primaryColor,
+                textInside: 'Add Card',
+              ),
             ),
           ),
         ],

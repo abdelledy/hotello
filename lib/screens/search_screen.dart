@@ -49,7 +49,6 @@ class _SearchScreenState extends State<SearchScreen> {
     final myDecoration = BoxDecoration(
       color: Colors.grey[200],
       borderRadius: BorderRadius.all(Radius.circular(10.0)),
-      // border: Border.all(color: Colors.grey[300], width: 1),
     );
 
     final _pickDate = InkWell(

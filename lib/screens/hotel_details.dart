@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hotello/components/the_container.dart';
 import 'package:hotello/screens/challenge-19-7/settings.dart';
+import 'package:hotello/screens/challenge-19-7/all_amenties.dart';
 
 class HotelDetails extends StatelessWidget {
   @override
@@ -100,34 +101,6 @@ class HotelDetails extends StatelessWidget {
                       image: DecorationImage(
                         image: AssetImage("assets/images/hoo.png"),
                         fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: 24.0,
-                  child: Container(
-                    height: 60.0,
-                    width: 360.0,
-                    child: Padding(
-                      padding: EdgeInsets.only(right: 20.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconButton(
-                              onPressed: () => Navigator.pop(context),
-                              icon: Icon(Icons.arrow_back,
-                                  color: Colors.white, size: 18.0)),
-                          Row(
-                            children: [
-                              Icon(Icons.favorite_border,
-                                  color: Colors.white, size: 18.0),
-                              SizedBox(width: 18.0),
-                              Icon(Icons.open_in_browser,
-                                  color: Colors.white, size: 18.0),
-                            ],
-                          ),
-                        ],
                       ),
                     ),
                   ),
@@ -259,35 +232,45 @@ class HotelDetails extends StatelessWidget {
                                             ],
                                           ),
                                           SizedBox(height: 20.0),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                'See all amenties',
-                                                style: TextStyle(
-                                                    fontSize: 17.0,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Theme.of(context)
-                                                        .primaryColor),
+                                          InkWell(
+                                            onTap: () => Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (_) => AllAmenties(),
                                               ),
-                                              Container(
-                                                height: 30.0,
-                                                width: 30.0,
-                                                decoration: BoxDecoration(
-                                                  color: Theme.of(context)
-                                                      .primaryColor,
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(
-                                                              10.0)),
+                                            ),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  'See all amenties',
+                                                  style: TextStyle(
+                                                      fontSize: 17.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Theme.of(context)
+                                                          .primaryColor),
                                                 ),
-                                                child: Icon(
-                                                    Icons.arrow_forward_ios,
-                                                    color: Colors.white,
-                                                    size: 16.0),
-                                              )
-                                            ],
+                                                Container(
+                                                  height: 30.0,
+                                                  width: 30.0,
+                                                  decoration: BoxDecoration(
+                                                    color: Theme.of(context)
+                                                        .primaryColor,
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(
+                                                                10.0)),
+                                                  ),
+                                                  child: Icon(
+                                                      Icons.arrow_forward_ios,
+                                                      color: Colors.white,
+                                                      size: 16.0),
+                                                )
+                                              ],
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -379,6 +362,34 @@ class HotelDetails extends StatelessWidget {
                     ),
                   )
                 ],
+              ),
+            ),
+            Positioned(
+              top: 24.0,
+              child: Container(
+                height: 60.0,
+                width: 360.0,
+                child: Padding(
+                  padding: EdgeInsets.only(right: 20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton(
+                          onPressed: () => Navigator.pop(context),
+                          icon: Icon(Icons.arrow_back,
+                              color: Colors.white, size: 18.0)),
+                      Row(
+                        children: [
+                          Icon(Icons.favorite_border,
+                              color: Colors.white, size: 18.0),
+                          SizedBox(width: 18.0),
+                          Icon(Icons.open_in_browser,
+                              color: Colors.white, size: 18.0),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
             Positioned(
