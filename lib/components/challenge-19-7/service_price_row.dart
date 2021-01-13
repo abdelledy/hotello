@@ -19,13 +19,14 @@ class ServicePrice extends StatelessWidget {
               style: TextStyle(
                 fontSize: 16.0,
                 // color: Colors.grey[500],
-                fontWeight: isTotal ? FontWeight.w500 : FontWeight.w300,
+                fontWeight: isTotal ? FontWeight.w500 : FontWeight.w400,
               ),
             ),
             Text(
               '\$$price',
               style: TextStyle(
                 fontSize: 16.0,
+                fontWeight: isTotal ? FontWeight.w500 : FontWeight.w400,
                 color: isTotal ? Theme.of(context).primaryColor : Colors.black,
               ),
             ),

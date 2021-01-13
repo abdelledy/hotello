@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hotello/components/challenge-19-7/text_field.dart';
 import 'package:hotello/components/challenge-19-7/service_price_row.dart';
+import 'package:hotello/screens/challenge-19-7/successful_booking.dart';
 import 'package:hotello/components/the_container.dart';
 
 class BookNow extends StatefulWidget {
@@ -32,10 +33,7 @@ class _BookNowState extends State<BookNow> {
       color: Colors.black,
     );
     final aStyle = TextStyle(
-      fontSize: 13,
-      color: Colors.grey[500],
-      fontWeight: FontWeight.w600,
-    );
+        fontSize: 13, color: Colors.grey[500], fontWeight: FontWeight.w600);
     final myDecoration = BoxDecoration(
       color: Colors.grey[200],
       borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -153,8 +151,6 @@ class _BookNowState extends State<BookNow> {
                   child: Padding(
                     padding: EdgeInsets.all(15.0),
                     child: Row(
-                      // mainAxisAlignment: MainAxisAlignment.center,
-                      // crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
                           height: 150.0,
@@ -250,10 +246,18 @@ class _BookNowState extends State<BookNow> {
                 SizedBox(height: 12.0),
                 ServicePrice(name: 'Total', price: '199.00', isTotal: true),
                 SizedBox(height: 20.0),
-                TheContainer(
-                  color: Theme.of(context).primaryColor,
-                  textInside: 'Payment',
-                  height: 50.0,
+                InkWell(
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => Done(),
+                    ),
+                  ),
+                  child: TheContainer(
+                    color: Theme.of(context).primaryColor,
+                    textInside: 'Payment',
+                    height: 50.0,
+                  ),
                 ),
               ],
             ),

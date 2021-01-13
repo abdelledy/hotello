@@ -12,10 +12,7 @@ class ResulsScreen extends StatefulWidget {
 
 class _ResulsScreenState extends State<ResulsScreen> {
   final aStyle = TextStyle(
-    fontSize: 13,
-    color: Colors.grey[500],
-    fontWeight: FontWeight.w600,
-  );
+      fontSize: 13, color: Colors.grey[500], fontWeight: FontWeight.w600);
 
   _filters(String name, IconData icon) {
     return Container(

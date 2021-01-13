@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hotello/screens/challenge-19-7/profile.dart';
+import 'package:hotello/screens/challenge-19-7/search_hotel.dart';
 
 // Height of the container is 66.0
 
 class Footer extends StatefulWidget {
+  final bool radius;
+
+  Footer({this.radius});
   @override
   _FooterState createState() => _FooterState();
 }
@@ -20,11 +25,19 @@ class _FooterState extends State<Footer> {
     FontAwesomeIcons.heart,
     FontAwesomeIcons.user,
   ];
+
   Widget _buildIcon(int index) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         setState(() {
           _selectedIndex = index;
+          if (_selectedIndex == 4) {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (_) => UserProfile()));
+          } else if (_selectedIndex == 1) {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (_) => SearchHotel()));
+          }
         });
       },
       child: Container(
@@ -62,17 +75,12 @@ class _FooterState extends State<Footer> {
       height: 66,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20.0), topRight: Radius.circular(20.0)),
         boxShadow: [
           BoxShadow(
-            color: Colors.black,
-            blurRadius: 0.5,
-            offset: Offset(
-              0.0,
-              1.0,
-            ),
-          )
+            color: Colors.grey[200],
+            blurRadius: 10.0,
+            spreadRadius: 2.5,
+          ),
         ],
       ),
       child: Padding(

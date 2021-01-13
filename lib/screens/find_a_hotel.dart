@@ -1,12 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hotello/components/the_container.dart';
 import 'package:hotello/screens/choose_room.dart';
 import 'package:hotello/screens/challenge-19-7/payment_method_selector.dart';
+import 'package:hotello/screens/challenge-19-7/profile.dart';
 import 'package:hotello/components/footer_icons.dart';
 
 class FindHotel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    _drawerLinks(String text, IconData icon) {
+      return Column(
+        children: [
+          Row(children: [
+            Icon(icon, color: Colors.white),
+            SizedBox(width: 15.0),
+            Text(text, style: TextStyle(fontSize: 18.0, color: Colors.white)),
+          ]),
+          SizedBox(height: 20.0)
+        ],
+      );
+    }
+
     // ------------------------------------------------------------------------
     final myContainer = Padding(
       padding: EdgeInsets.symmetric(vertical: 10.0),
@@ -164,15 +179,24 @@ class FindHotel extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        iconTheme: IconTheme.of(context),
         backgroundColor: Colors.white,
-        leading: Icon(Icons.sort, color: Colors.black, size: 30.0),
+        title: Text('Drawer test'),
         elevation: 0.0,
         actions: [
-          Padding(
-            padding: EdgeInsets.fromLTRB(0.0, 10.0, 15.0, 10.0),
-            child: CircleAvatar(
-              backgroundImage: AssetImage('assets/images/johny.jpg'),
-              radius: 18.0,
+          InkWell(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => UserProfile(),
+              ),
+            ),
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(0.0, 10.0, 15.0, 10.0),
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/images/johny.jpg'),
+                radius: 18.0,
+              ),
             ),
           ),
         ],
@@ -280,6 +304,108 @@ class FindHotel extends StatelessWidget {
             ],
           ),
         ],
+      ),
+
+      // Drawer ***************************************
+      drawer: Theme(
+        data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
+        child: Container(
+          height: 660.0,
+          width: 250.0,
+          child: Drawer(
+            elevation: 0,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(30.0),
+                  bottomRight: Radius.circular(30.0),
+                ),
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(40.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Column(
+                      children: [
+                        Container(
+                          height: 100.0,
+                          width: 100.0,
+                          child: Stack(
+                            children: [
+                              Positioned(
+                                top: 0.0,
+                                right: 0.0,
+                                child: CircleAvatar(
+                                  radius: 50.0,
+                                  backgroundImage:
+                                      AssetImage("assets/images/me.jpg"),
+                                ),
+                              ),
+                              Positioned(
+                                right: 5.0,
+                                bottom: 5.0,
+                                child: Container(
+                                  height: 20.0,
+                                  width: 20.0,
+                                  decoration: BoxDecoration(
+                                    color: Colors.orange,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10.0)),
+                                  ),
+                                  child: Icon(Icons.edit,
+                                      color: Colors.white, size: 12.0),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 10.0),
+                        Text(
+                          'Abdell Ed',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(height: 3.0),
+                        Text(
+                          'contact@edee.com',
+                          style: TextStyle(
+                            fontSize: 15.0,
+                            fontWeight: FontWeight.w300,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 40.0),
+                    _drawerLinks('Home', FontAwesomeIcons.home),
+                    _drawerLinks('Location', FontAwesomeIcons.locationArrow),
+                    _drawerLinks('Bookings', FontAwesomeIcons.solidBookmark),
+                    _drawerLinks('Settings', Icons.settings),
+                    _drawerLinks('Notification', Icons.notifications_active),
+                    SizedBox(height: 10.0),
+                    Row(children: [
+                      Icon(Icons.arrow_left, color: Colors.white, size: 34.0),
+                      SizedBox(width: 10.0),
+                      Text(
+                        'Log Out',
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ]),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

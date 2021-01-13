@@ -5,6 +5,7 @@ import 'package:hotello/components/challenge-19-7/avatar_circles_more_reviews.da
 import 'package:hotello/components/the_container.dart';
 import 'package:hotello/screens/challenge-19-7/all_reviews.dart';
 import 'package:hotello/screens/challenge-19-7/book_now.dart';
+import 'package:hotello/screens/challenge-19-7/more_payment.dart';
 import 'package:hotello/screens/challenge-19-7/all_amenties.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -462,7 +463,7 @@ class RoomDetails extends StatelessWidget {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => BookNow(),
+                      builder: (_) => MorePayment(),
                     ),
                   ),
                   child: TheContainer(
